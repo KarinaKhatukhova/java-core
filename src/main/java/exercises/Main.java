@@ -8,7 +8,13 @@ public class Main {
 
 //        stringlist.getList();
 //        stringlist.getListWithSmallTitle();
-        stringlist.getOddList();
+//        stringlist.getOddList();
+//        stringlist.getolorListProcessor();
+//        stringlist.getColorList();
+//        stringlist.getColorListMergerNoDuplicates();
+          stringlist.getColorListComparator();
+
+
 
     }
 }
