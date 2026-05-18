@@ -22,7 +22,9 @@ import java.util.HashMap;
 
 public class MyStore {
     public static void getSales(HashMap<String, Integer> salesMap) {
-        System.out.println("Sales list: " + salesMap);
+        for (String s : salesMap.keySet()) {
+            System.out.println("Sale position: " + s);
+        }
     }
 
 }
