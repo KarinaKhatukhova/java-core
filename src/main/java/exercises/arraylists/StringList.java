@@ -5,6 +5,30 @@ import java.util.Collections;
 import java.util.LinkedHashSet;
 import java.util.List;
 
+/*
+        Чтобы проверить задание по Stringlist
+        нужно добавить в Main данный код:
+
+*       List<String> colors = new ArrayList<>();
+        colors.add(String.valueOf(Color.Red));
+        colors.add(String.valueOf(Color.Blue));
+        colors.add(String.valueOf(Color.Green));
+        colors.add(String.valueOf(Color.Yellow));
+        colors.add(String.valueOf(Color.Black));
+        colors.add(String.valueOf(Color.Pink));
+        colors.add(String.valueOf(Color.White));
+
+        StringList.getList(colors);
+        StringList.runListWithSmallTitle(colors);
+        StringList.runOddList(colors);
+        StringList.runColorListProcessor(colors);
+
+        StringList.runColorList(colors);
+        StringList.runColorListMergerNoDuplicates(colors);
+        StringList.runColorListComparator(colors);
+*
+* */
+
 public class StringList {
 
     public static void getList(List<String> colors) {
