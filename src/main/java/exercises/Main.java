@@ -1,7 +1,6 @@
 package exercises;
 
 import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Отчет продаж магазина (вставте данный текст себе IDEA) над методом<p>
@@ -29,10 +28,10 @@ public class Main {
         salesMap.put("Monitors", 34000);
         salesMap.put("Microwave", 55000);
 
-        salesMap.remove("Headphones");
-
-        for (Map.Entry<String, Integer> stringIntegerEntry : salesMap.entrySet()) {
-            System.out.println("Sale position: " + stringIntegerEntry);
+        if (salesMap.containsKey("Smartphones")) {
+            System.out.println("Position value: " + salesMap.get("Smartphones"));
+        } else {
+            System.out.println("Position not found");
         }
     }
 }
