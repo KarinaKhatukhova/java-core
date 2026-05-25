@@ -27,6 +27,7 @@ public class Main {
         salesMap.put("Smartphones", 85000);
         salesMap.put("Headphones", 12000);
         salesMap.put("Monitors", 34000);
+        salesMap.put("Microwave", 55000);
 
         for (Map.Entry<String, Integer> stringIntegerEntry : salesMap.entrySet()) {
             System.out.println("Sale position: " + stringIntegerEntry);
