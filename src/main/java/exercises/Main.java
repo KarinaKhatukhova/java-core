@@ -28,8 +28,22 @@ public class Main {
         salesMap.put("Monitors", 34000);
         salesMap.put("Microwave", 55000);
 
-        if (salesMap.containsKey("Smartphones")) {
-            System.out.println("Position value: " + salesMap.get("Smartphones"));
+        String item = "Smartphones";
+        if (salesMap.containsKey(item)) {
+            System.out.println("\nThe position exists \nPosition value: " + salesMap.get(item));
+
+            int newPrice = salesMap.get(item) + 50000;
+            salesMap.put(item, newPrice);
+
+            System.out.println("New position value: " + salesMap.get(item));
+
+            boolean isRemoved = salesMap.remove(item, newPrice);
+            System.out.println("Position \"" + item + "\" deleted");
+
+            if (!isRemoved) {
+                System.out.println("Deletion failed: the position is missing.");
+            }
+
         } else {
             System.out.println("Position not found");
         }
