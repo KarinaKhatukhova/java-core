@@ -1,7 +1,6 @@
 package exercises;
 
 import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Отчет продаж магазина (вставте данный текст себе IDEA) над методом<p>
@@ -27,9 +26,26 @@ public class Main {
         salesMap.put("Smartphones", 85000);
         salesMap.put("Headphones", 12000);
         salesMap.put("Monitors", 34000);
+        salesMap.put("Microwave", 55000);
 
-        for (Map.Entry<String, Integer> stringIntegerEntry : salesMap.entrySet()) {
-            System.out.println("Sale position: " + stringIntegerEntry);
+        String item = "Smartphones";
+        if (salesMap.containsKey(item)) {
+            System.out.println("\nThe position exists \nPosition value: " + salesMap.get(item));
+
+            int newPrice = salesMap.get(item) + 50000;
+            salesMap.put(item, newPrice);
+
+            System.out.println("New position value: " + salesMap.get(item));
+
+            boolean isRemoved = salesMap.remove(item, newPrice);
+            System.out.println("Position \"" + item + "\" deleted");
+
+            if (!isRemoved) {
+                System.out.println("Deletion failed: the position is missing.");
+            }
+
+        } else {
+            System.out.println("Position not found");
         }
     }
 }
