@@ -21,31 +21,22 @@ import java.util.HashMap;
 
 public class Main {
     public static void main(String[] args) {
-        HashMap<String, Integer> salesMap = new HashMap<>();
-        salesMap.put("Notebooks", 150000);
-        salesMap.put("Smartphones", 85000);
-        salesMap.put("Headphones", 12000);
-        salesMap.put("Monitors", 34000);
-        salesMap.put("Microwave", 55000);
+        SalesReport report = new SalesReport();
 
-        String item = "Smartphones";
-        if (salesMap.containsKey(item)) {
-            System.out.println("\nThe position exists \nPosition value: " + salesMap.get(item));
+        report.addSale("Notebooks", 150000);
+        report.addSale("Smartphones", 85000);
+        report.addSale("Headphones", 12000);
+        report.addSale("Monitors", 34000);
+        report.addSale("Microwave", 55000);
 
-            int newPrice = salesMap.get(item) + 50000;
-            salesMap.put(item, newPrice);
+        System.out.println("All report: \n" + report);
 
-            System.out.println("New position value: " + salesMap.get(item));
+        System.out.println("--- Checking the return sale ---");
+        report.returnOfSale("Notebooks", 5000.0);
+        System.out.println("After return sale: \n" + report);
 
-            boolean isRemoved = salesMap.remove(item, newPrice);
-            System.out.println("Position \"" + item + "\" deleted");
-
-            if (!isRemoved) {
-                System.out.println("Deletion failed: the position is missing.");
-            }
-
-        } else {
-            System.out.println("Position not found");
-        }
+        System.out.println("--- Checking remove position ---");
+        report.removePosition("Microwave");
+        System.out.println("After return sale: \n" + report);
     }
 }
