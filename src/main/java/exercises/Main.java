@@ -32,7 +32,7 @@ public class Main {
         System.out.println("All report: \n" + report);
 
         System.out.println("--- Checking the return sale ---");
-        report.returnOfSale("Notebooks", 5000.0);
+        report.cancelSale("Notebooks", 5000.0);
         System.out.println("After return sale: \n" + report);
 
         System.out.println("--- Checking remove position ---");

@@ -9,7 +9,7 @@ public class SalesReport {
 
     public void addSale(String productName, double amount) {
         if (amount < 0) {
-            System.out.println("The sales amount cannot be less than 0");
+            throw new RuntimeException("The sales amount cannot be less than 0");
         }
 
         if (salesMap.containsKey(productName)) {
@@ -20,19 +20,27 @@ public class SalesReport {
         }
     }
 
-    public void returnOfSale(String productName, double amount) {
+    public void cancelSale(String productName, double amount) {
         if (amount < 0) {
-            System.out.println("The sales amount cannot be less than 0");
+            throw new RuntimeException("The sales amount cannot be less than 0");
         }
+
         if (salesMap.containsKey(productName)) {
             double currentAmount = salesMap.get(productName);
+
+            if (amount > currentAmount) {
+                throw new RuntimeException("Cannot cancel for amount > current amount");
+            }
+
             double newAmount = currentAmount - amount;
 
-            if (newAmount <= 0) {
+            if (newAmount == 0) {
                 salesMap.remove(productName);
             } else {
                 salesMap.put(productName, newAmount);
             }
+        } else {
+            throw new IllegalArgumentException("Product not found in sales");
         }
     }
 
