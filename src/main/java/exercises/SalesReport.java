@@ -8,9 +8,7 @@ public class SalesReport {
     private final Map<String, Double> salesMap = new HashMap<>();
 
     public void addSale(String productName, double amount) {
-        if (amount < 0) {
-            throw new RuntimeException("The sales amount cannot be less than 0");
-        }
+        failIfNegative(amount);
 
         if (salesMap.containsKey(productName)) {
             double currentAmount = salesMap.get(productName);
@@ -21,9 +19,7 @@ public class SalesReport {
     }
 
     public void cancelSale(String productName, double amount) {
-        if (amount < 0) {
-            throw new RuntimeException("The sales amount cannot be less than 0");
-        }
+        failIfNegative(amount);
 
         if (salesMap.containsKey(productName)) {
             double currentAmount = salesMap.get(productName);
@@ -33,12 +29,7 @@ public class SalesReport {
             }
 
             double newAmount = currentAmount - amount;
-
-            if (newAmount == 0) {
-                salesMap.remove(productName);
-            } else {
-                salesMap.put(productName, newAmount);
-            }
+            salesMap.put(productName, newAmount);
         } else {
             throw new IllegalArgumentException("Product not found in sales");
         }
@@ -61,5 +52,11 @@ public class SalesReport {
         }
 
         return result;
+    }
+
+    private void failIfNegative(double amount) {
+        if (amount < 0) {
+            throw new RuntimeException("The sales amount cannot be less than 0");
+        }
     }
 }
